@@ -114,9 +114,8 @@ wget https://download.virtualbox.org/virtualbox/7.1.0/Oracle_VM_VirtualBox_Exten
 reboot
 
 echo instalando MySQL Workbench
-wget https://dev.mysql.com/get/mysql84-community-release-fc41-1.noarch.rpm
-rpm -Uvh mysql84-community-release-*
-dnf install mysql-workbench -y
+# Via Snapd
+snap install mysql-workbench-community
 
 
 echo Outros Programas
@@ -128,6 +127,8 @@ dnf install -y htop
 dnf install -y libreoffice
 dnf install -y calibre
 dnf install -y fastfetch cmatrix
+
+echo Instalando LAMP
 
 ######################################
 # Apps Loja
@@ -144,3 +145,5 @@ dnf install -y fastfetch cmatrix
 # + Rusrtdesk 
 # docker
 # PDF Editor/Merge
+
+
