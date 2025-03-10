@@ -97,8 +97,17 @@ flatpak install flathub org.deluge_torrent.deluge
 echo Instalando Build Essentials...
 dnf group install "C Development Tools and Libraries" "Development Tools"
 
-echo Extensão GSCONNECT
+echo Instalando extensão GSCONNECT
 dnf install -y gnome-shell-extension-gsconnect
+
+echo Instalando VirtualBox
+dnf install -y @development-tools
+dnf install -y kernel-devel kernel-headers dkms qt5-qtx11extras
+rpm --import https://www.virtualbox.org/download/oracle_vbox.asc
+wget -P /etc/yum.repos.d/ http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+dnf install -y VirtualBox-7.1
+usermod -a -G vboxusers $USER
+reboot
 
 echo Outros Programas
 dnf install -y thunderbird
@@ -110,17 +119,18 @@ dnf install -y libreoffice
 dnf install -y calibre
 dnf install -y fastfetch cmatrix
 
-
-# Apps
-# github desktop
-# spotify
-# discord
-# Zap Zap 
-# whatsapp
-# Telegram 
-# Gerador de senhas (Pssscomposer)
-# anydesk e rusrtdesk 
-# virtualbox
+######################################
+# Apps Loja
+######################################
+# + GitHub Desktop
+# + Gerenciador Extensões 
+# + spotify
+# + discord
+# + ZapZap (whatsapp)
+# + Telegram 
+# + Gnome Password Generator
+# + KeepassXC
+# + Anydesk 
+# + Rusrtdesk 
 # docker
-# postman
 # PDF Editor/Merge
