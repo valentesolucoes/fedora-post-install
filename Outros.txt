@@ -1,0 +1,51 @@
+- Fastfetch, antigo neofetch
+    sudo dnf install fastfetch
+
+- Install zsh
+    $ sudo dnf install zsh
+    $ zsh
+
+    Escolha a opção (1) para poder fazer as configurações básicas.
+    As 3 primeiras opções são recomendáveis configurar para ter um melhor uso do zsh.
+        Escolha a opção: (1) Configure settings for history, i.e. command lines remembered and saved by the shell:
+    Neste menu, basta escolher as opções e apenas pressionar Enter com os valores padrões:
+        # (1) Number of lines of history kept within the shell.
+        HISTSIZE=1000
+        # (2) File where history is saved.
+        HISTFILE=~/.histfile
+        # (3) Number of lines of history to save to $HISTFILE.
+        SAVEHIST=1000
+    Pressione 0 para voltar ao menu principal
+    Escolha a opção: (2) Configure the new completion system:
+    Pressione 1 para ativar o autocomplete do zsh.
+        Irá retornar automaticamente para o menu principal.
+    Escolha a opção: (3): Configure how keys behave when editing command lines:
+
+    A menos que use outro editor e saiba o que está fazendo, basta selecionar a opção (1) e depois a letra (k) para manter a configuração padrão.
+        Pressione 0 para retornar ao menu principal.
+        Pressione 0 para sair e salvar as configurações.
+
+    TORNAR O ZSH O SHELL PADRÃO
+
+    sudo nano /etc/passwd
+
+        Basta editar a linha do seu usuário:
+
+    Exemplo:
+
+    seu_usuario:x:1000:1000:Seu Nome:/home/seu_usuario:/bin/bash
+
+    Basta substituir o bash no fim da linha por zsh. Deve ficar assim:
+    seu_usuario:x:1000:1000:Seu Nome:/home/seu_usuario:/bin/zsh
+
+    Personalizar usando Oh My Zsh - Fonte: https://ohmyz.sh/
+
+    Instalar o oh-my-zsh:
+    $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    Para escolher entre os temas disponíveis:
+    Neste link você pode ver alguns temas disponíveis: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+    No gerenciador de arquivos, na sua pasta pessoal, procure pelo arquivo .zshrc
+    (Para exibir os arquivos e diretórios que começam com ., pressione ctrl+h).
+    Abra o arquivo .zshrc e edite a linha ZSH_THEME="robbyrussell". No lugar de "robbyrusell" coloque o nome do tema desejado.
+    ZSH_THEME="agnoster"
