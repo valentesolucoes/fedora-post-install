@@ -78,11 +78,11 @@ dnf install p7zip p7zip-plugins unrar unzip gzip -y
 
 echo Instalando Code...
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo"'
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
 dnf check-update
 dnf install code -y
 
-#echo Instalando	qbittorrent...
+#echo Instalando qbittorrent...
 #dnf install qbittorrent -y
 
 echo Instalando Java...
