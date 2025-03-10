@@ -115,7 +115,7 @@ reboot
 
 echo instalando MySQL Workbench
 wget https://dev.mysql.com/get/mysql84-community-release-fc41-1.noarch.rpm
-sudo rpm -Uvh mysql84-community-release-*
+rpm -Uvh mysql84-community-release-*
 dnf install mysql-workbench -y
 
 
