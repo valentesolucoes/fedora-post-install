@@ -36,10 +36,10 @@ dnf install -y rpmfusion-free-release-tainted
 dnf install -y rpmfusion-nonfree-release-rawhide 
 dnf install -y dnf-plugins-core
 
-#echo Suporte a SNAP...
-#dnf install -y snapd
-#ln -s /var/lib/snapd/snap /snap
-# reboot now
+echo Suporte a SNAP...
+dnf install -y snapd
+ln -s /var/lib/snapd/snap /snap
+reboot now
 
 echo Suporte a DVD...
 dnf install -y libdvdcss
@@ -99,6 +99,8 @@ dnf group install "C Development Tools and Libraries" "Development Tools"
 
 echo Instalando extensão GSCONNECT
 dnf install -y gnome-shell-extension-gsconnect
+# Depois em extenções instalar a extensão gsconnect e
+# Instalar o KDE Connect no celular
 
 echo Instalando VirtualBox
 dnf install -y @development-tools
@@ -107,8 +109,15 @@ rpm --import https://www.virtualbox.org/download/oracle_vbox.asc
 wget -P /etc/yum.repos.d/ http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
 dnf install -y VirtualBox-7.1
 usermod -a -G vboxusers $USER
+#extra Pack
 wget https://download.virtualbox.org/virtualbox/7.1.0/Oracle_VM_VirtualBox_Extension_Pack-7.1.0.vbox-extpack
 reboot
+
+echo instalando MySQL Workbench
+wget https://dev.mysql.com/get/mysql84-community-release-fc41-1.noarch.rpm
+sudo rpm -Uvh mysql84-community-release-*
+dnf install mysql-workbench -y
+
 
 echo Outros Programas
 dnf install -y thunderbird
