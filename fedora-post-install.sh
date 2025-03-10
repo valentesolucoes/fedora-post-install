@@ -107,6 +107,7 @@ rpm --import https://www.virtualbox.org/download/oracle_vbox.asc
 wget -P /etc/yum.repos.d/ http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
 dnf install -y VirtualBox-7.1
 usermod -a -G vboxusers $USER
+wget https://download.virtualbox.org/virtualbox/7.1.0/Oracle_VM_VirtualBox_Extension_Pack-7.1.0.vbox-extpack
 reboot
 
 echo Outros Programas
