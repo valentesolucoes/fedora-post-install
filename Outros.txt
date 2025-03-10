@@ -1,6 +1,24 @@
-- Fastfetch, antigo neofetch
-    sudo dnf install fastfetch
+- Configurações do terminal
+    Preferences->Edit Profile
+        Defina um nome para o perfil;
+        Copie o idenficador para a memória;
+        Em Color->Palettte selecione Catppuccin Mocha.
+    Preferences->Appearance    
+        Font->Custom Font: Monospace Regular 14
+        Blinking Text: Focused
+        Cursor->Cursor Shape: I-Beam
+    Preferences->Behavior
+        Restore Session: Off
+        Restore Windows Size: 120x30
+    Reinicie o terminal    
+    Para definir transparencia digite:
+    $ dconf write /org/gnome/Ptyxis/Profiles/*** Your-profile-ID ***/opacity 0.90 *** Subsituir pelo idenficador ***
+    Aogra em Preferences->Appearance, teremos a opção transparencia
 
+- Configurações do Nautillus
+    - Ordernar pastas antes de arquivos;
+    Obs: CTRL+H exibe/Oculta arquivos ocultos
+    
 - Install zsh
     $ sudo dnf install zsh
     $ zsh
@@ -49,3 +67,43 @@
     (Para exibir os arquivos e diretórios que começam com ., pressione ctrl+h).
     Abra o arquivo .zshrc e edite a linha ZSH_THEME="robbyrussell". No lugar de "robbyrusell" coloque o nome do tema desejado.
     ZSH_THEME="agnoster"
+
+    Reinicie o computador
+
+- AMD Radeon RX 5500 XT Driver/DaVinci Resolve
+    Ref: https://www.youtube.com/watch?v=pUkOswsIk_M
+    $ sudo dnf install rocminfo -y
+    $ sudo dnf install rocm-opencl -y
+    $ sudo dnf install rocm-clinfo -y
+    $ sudo dnf install rocm-hip -y
+
+    # Reinicar
+    Donwload DaVinci Resolve 19 -> Linux 
+    Na pasta Donwload, extraia o arquivo e acesse a pasta no terminal
+
+    Instalar dependencias
+    $ sudo dnf install libscrypt-compat -y
+
+    Instalação:
+    Clique sobre o arquivo .run e copie o nome do arquivo para a memória
+    Agora digite o comando abaixo, juntamente com o nome do arquivo de instalação do DaVinci
+    $ sudo SKIP_PACKAGE_CHECK=1 ./DaVinci_Resolve_Studio_19.1.3_Linux.run
+    Prossiga com a instalação na tela grafica que se abre, posteriormente.
+    Next ->  DaVinci Resolve Open FX Renderer (Marque essa opção se aparecer) -> Next -> Next (Agree) -> Show Detailed Log 
+    -> Start Install -> Finish
+
+    Remover Old libraries:
+    $ cd /opt/resolve/ibs/
+    $ sudo mkdir disabled-libraries
+    $ sudo mv libglib* disabled-libraries/
+    $ sudo mv libgio* disabled-libraries/
+    $ sudo mv libgmodule* disabled-libraries/
+
+- github
+    $ dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo -y
+    $ dnf install -y gh
+    $ dnf update gh
+
+    # Configurar Autenticação
+    $ gh auth login
+    $ gh config set editor nano
