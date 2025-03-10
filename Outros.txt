@@ -18,7 +18,7 @@
 - Configurações do Nautillus
     - Ordernar pastas antes de arquivos;
     Obs: CTRL+H exibe/Oculta arquivos ocultos
-    
+
 - Install zsh
     $ sudo dnf install zsh
     $ zsh
@@ -100,7 +100,6 @@
     $ sudo mv libgmodule* disabled-libraries/
 
 - github
-    $ dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo -y
     $ dnf install -y gh
     $ dnf update gh
 

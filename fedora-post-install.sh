@@ -112,6 +112,7 @@ dnf install -y fastfetch cmatrix
 
 
 # Apps
+# github desktop
 # spotify
 # discord
 # Zap Zap 
