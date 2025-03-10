@@ -61,14 +61,17 @@ sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.micros
 dnf check-update
 dnf install code -y
 
-echo Instalando	qbittorrent...
-dnf install qbittorrent -y
+#echo Instalando	qbittorrent...
+#dnf install qbittorrent -y
 
 echo Instalando Java...
 dnf install java-21-openjdk -y
 
 echo Habilitando flathub...
 flatpak remote-modify --enable flathub
+
+echo Instalando deluge torrent
+flatpak install flathub org.deluge_torrent.deluge
 
 echo Instalando Build Essentials...
 dnf group install "C Development Tools and Libraries" "Development Tools"
