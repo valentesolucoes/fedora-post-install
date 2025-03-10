@@ -116,7 +116,7 @@ reboot
 echo instalando MySQL Workbench
 # Via Snapd
 snap install mysql-workbench-community
-
+# Rever msg de erro
 
 echo Outros Programas
 dnf install -y thunderbird
