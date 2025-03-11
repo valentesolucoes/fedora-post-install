@@ -226,3 +226,4 @@
     ./tweaks.sh -r 
 
     Para habilitar essa aparência em navegadores baseados no Chromium, entre em configurações, aparência, usar gtk.
+
