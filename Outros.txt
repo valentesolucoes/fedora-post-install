@@ -145,3 +145,97 @@
 
     # Abra o programa e na primeira mensagem, marque para desabilitar
     # Abra a conexão para root, com a senha que criamos e a na primeira mensagem, marque para desabilitar também.
+
+- Customização do Gnome
+    Atualize o sistema com estes comando pelo terminal:
+    $ sudo dnf update --refresh
+
+    Reinicie o sistema
+
+    Instale o timeshift e crie um ponto de restauração
+
+    sudo dnf install timeshift
+
+    Instalar gerenciador de extensões gnome, ajustes do gnome e extensões
+
+
+    Tema do Mac OS Sonoma 
+
+    sudo dnf install git
+
+    git clone https://github.com/vinceliuice/WhiteS...
+
+    ls
+
+    cd WhiteSur-gtk-theme
+
+    ls
+
+    ./install.sh (não precisa estar como root/adm)
+
+    ./install.sh -h (para ver todas as opções)
+
+    ./install.sh -m -t all -l -N stable --round
+
+    sudo ./tweaks.sh -g
+
+    Entrar neste site e baixe o tema de icones: https://www.pling.com/p/1102582/
+
+    Extrair arquivos para uma pasta que será criada na Home/Pasta pessoal com o nome de .icons
+
+    Abra a ferramenta de extensão e 
+    instale o "user themes"
+
+    Abra o tweaks ou ajustes do Gnome e mude os temas
+
+    Apperance
+    incons - cupertino-sonoma
+    shell - WhiteSurDark
+    legacyApplications - WhiteSurDark
+
+    Windows Titlebars
+    mudar botões para o lado esquerdo
+
+    Extensões para adicionar
+    
+    //        appindicator
+    //        desktop icons:Neo
+    //        dash to dock
+    //        blur my shell
+    //        quick settings tweaker
+    //        compiz alike magic lamp effect
+    //        compiz windows effect 
+    //        burn my windows
+    //        Wallpaper Slideshow
+
+
+
+    Baixe os wallpapers
+
+    Instalar fontes (esta parte não foi mostrada no vídeo, porém, é moleza de se fazer)
+
+    Baixe o arquivo de fontes neste site: 
+    https://fonts.google.com/specimen/Inter
+
+    Extraia para a pasta .fonts que fica na pasta Home/Pasta pessoal (se não existir a pasta, crie uma)
+    No ajustes do gnome vá até a opção fonts, texto de interface e selecione a fonte inter regular
+
+
+    compatibilidade com os flatpaks
+
+    1 ./tweaks.sh --flatpak
+
+    2 ./tweaks.sh -F
+
+    3 sudo flatpak override --filesystem=xdg-config/gtk-4.0
+
+    Se não funcionarem inicialmente, reinicie o sistema. Se mesmo assim não funcionarem, tente os comandos 1 e 2 utilizando com sudo e reinicie.
+
+    Se quiser remover todo o tema, utilize os comandos:
+
+    (precisa estar na pasta do arquivo de script)
+    ./install.sh -r -u
+
+    ./tweaks.sh -r 
+
+    Para habilitar essa aparência em navegadores baseados no Chromium, entre em configurações, aparência, usar gtk.
