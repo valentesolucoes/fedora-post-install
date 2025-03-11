@@ -114,6 +114,7 @@ usermod -a -G vboxusers $USER
 wget https://download.virtualbox.org/virtualbox/7.1.0/Oracle_VM_VirtualBox_Extension_Pack-7.1.0.vbox-extpack
 reboot
 
+
 echo Outros Programas
 dnf install -y thunderbird
 dnf install -y filezilla

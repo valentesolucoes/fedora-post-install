@@ -238,3 +238,48 @@
 
     Para habilitar essa aparência em navegadores baseados no Chromium, entre em configurações, aparência, usar gtk.
 
+- Instalado LAMP
+    dnf install -y httpd
+    systemctl enable httpd
+    systemctl start httpd
+    firewall-cmd --permanent --zone=FedoraWorkstation --add-service=http
+    firewall-cmd --permanent --zone=FedoraWorkstation --add-service=https
+    systemctl restart firewalld
+    dnf install -y php php-cli php-zip php-xml php-pdo php-mysqlnd php-pear php-mbstring php-mcrypt php-json php-fpm php-gd php-opcache php-curl
+    dnf install -y phpmyadmin
+    systemctl restart httpd
+
+    # O MySQL foi instalado junto com o mysql-workbench
+    # Configurando para acesso remoto
+    sudo nano /etc/httpd/conf.d/phpMyAdmin.conf
+    Substituir
+    <Directory /usr/share/phpmyadmin>
+        Require local
+    </Directory>
+    Por 
+    <Directory /usr/share/phpmyadmin>
+        Require all granted
+    </Directory>
+    sudo systemctl restart httpd
+
+- Instalando Laravel, Composer, node.js e npm
+    # Node.js and npm
+    $ sudo sudo dnf install nodejs
+
+    # Composer
+    $ curl -sS https://getcomposer.org/installer | php
+    $ sudo mv composer.phar /usr/local/bin/composer  
+    $ sudo chmod +x /usr/local/bin/composer
+    $ composer --version
+    $ composer diagnose
+
+    # Laravel
+    $ mkdir ~/laravel 
+    $ composer global require laravel/installer
+    # nano ~/.zshrc
+    # adicionar a linha: export PATH=~/.config/composer/vendor/bin:$PATH
+    $ reloadbash
+
+    # Para criar uma aplicação:
+    $ laravel new example-app
+    $ cd example-app
