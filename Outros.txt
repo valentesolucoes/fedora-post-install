@@ -154,42 +154,29 @@
 
     Instale o timeshift e crie um ponto de restauração
 
-    sudo dnf install timeshift
+    $ sudo dnf install timeshift -y
 
     Instalar gerenciador de extensões gnome, ajustes do gnome e extensões
 
-
     Tema do Mac OS Sonoma 
 
-    sudo dnf install git
-
-    git clone https://github.com/vinceliuice/WhiteS...
-
-    ls
-
-    cd WhiteSur-gtk-theme
-
-    ls
-
-    ./install.sh (não precisa estar como root/adm)
-
-    ./install.sh -h (para ver todas as opções)
-
-    ./install.sh -m -t all -l -N stable --round
-
-    sudo ./tweaks.sh -g
+    $ sudo dnf install git
+    $ git clone https://github.com/vinceliuice/WhiteSur-gtk-theme
+    $ cd WhiteSur-gtk-theme
+    $ ./install.sh (não precisa estar como root/adm)
+    $ ./install.sh -h (para ver todas as opções)
+    $ ./install.sh -m -t all -l -N stable --round
+    $ sudo ./tweaks.sh -g
 
     Entrar neste site e baixe o tema de icones: https://www.pling.com/p/1102582/
-
     Extrair arquivos para uma pasta que será criada na Home/Pasta pessoal com o nome de .icons
-
     Abra a ferramenta de extensão e 
     instale o "user themes"
 
     Abra o tweaks ou ajustes do Gnome e mude os temas
 
     Apperance
-    incons - cupertino-sonoma
+    icons - cupertino-sonoma
     shell - WhiteSurDark
     legacyApplications - WhiteSurDark
 
@@ -199,13 +186,13 @@
     Extensões para adicionar
     
     //        appindicator
-    //        desktop icons:Neo
+    //        desktop icons NG (DING)
     //        dash to dock
     //        blur my shell
     //        quick settings tweaker
     //        compiz alike magic lamp effect
     //        compiz windows effect 
-    //        burn my windows
+    //        ++burn my windows
     //        Wallpaper Slideshow
 
 
