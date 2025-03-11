@@ -19,6 +19,13 @@
     - Ordernar pastas antes de arquivos;
     Obs: CTRL+H exibe/Oculta arquivos ocultos
 
+- Atalhos Personalizados
+    Configurações -> Teclado -> Veja e Personalize Atalhos
+        Atalhos Personalizados:
+            Gnome System Monitor - gnome-system-monitor - Ctrl+Alt+Delete
+            Nautillus  - nautilus - Super+E 
+            Terminal - ptyxis - Super+R
+            
 - Install zsh
     $ sudo dnf install zsh
     $ zsh
