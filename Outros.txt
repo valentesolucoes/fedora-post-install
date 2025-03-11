@@ -283,3 +283,8 @@
     # Para criar uma aplicação:
     $ laravel new example-app
     $ cd example-app
+
+- Instalação dos pacotes de nuvem
+    - Onedrive
+    - NextCloud
+    - GoogleDrive
