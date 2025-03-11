@@ -18,6 +18,8 @@
 - Configurações do Nautillus
     - Ordernar pastas antes de arquivos;
     Obs: CTRL+H exibe/Oculta arquivos ocultos
+    - Abrir com code (fechar o nautilus antes):
+        $ wget -qO- https://raw.githubusercontent.com/harry-cpp/code-nautilus/master/install.sh | bash
 
 - Atalhos Personalizados
     Configurações -> Teclado -> Veja e Personalize Atalhos
