@@ -113,11 +113,6 @@ usermod -a -G vboxusers $USER
 wget https://download.virtualbox.org/virtualbox/7.1.0/Oracle_VM_VirtualBox_Extension_Pack-7.1.0.vbox-extpack
 reboot
 
-echo instalando MySQL Workbench
-# Via Snapd
-snap install mysql-workbench-community
-# Rever msg de erro
-
 echo Outros Programas
 dnf install -y thunderbird
 dnf install -y filezilla
@@ -143,6 +138,7 @@ echo Instalando LAMP
 # + KeepassXC
 # + Anydesk 
 # + Rusrtdesk 
+# + MySQL Server / MySQL Workbench
 # docker
 # PDF Editor/Merge
 
