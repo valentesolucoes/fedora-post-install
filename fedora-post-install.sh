@@ -49,8 +49,9 @@ dnf install gnome-tweak-tool gnome-extensions-app -y
 
 echo Instalando Google Chrome...
 dnf install wget -y
-wget -c -P /tmp/ https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-dnf localinstall /tmp/google-chrome-stable_current_x86_64.rpm -y
+dnf install fedora-workstation-repositories
+dnf config-manager --set-enabled google-chrome
+dnf install google-chrome-stable -y
 
 echo Instalando Codecs de Mídia...
 dnf config-manager setopt fedora-isco-openh264.enabled=1

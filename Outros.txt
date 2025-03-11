@@ -27,6 +27,7 @@
             Gnome System Monitor - gnome-system-monitor - Ctrl+Alt+Delete
             Nautillus  - nautilus - Super+E 
             Terminal - ptyxis - Super+R
+            Calculadora - gnome-calculator - Super+C
             
 - Install zsh
     $ sudo dnf install zsh
@@ -197,6 +198,7 @@
     //        appindicator
     //        desktop icons NG (DING)
     //        dash to dock
+    //        dash2dock Animated
     //        blur my shell
     //        quick settings tweaker
     //        compiz alike magic lamp effect
