@@ -288,3 +288,17 @@
     - Onedrive
     - NextCloud
     - GoogleDrive
+    - pCloudDrive
+    - Stremio
+    - Itaú
+    - DB Browser for SQLite
+    - Antnotes (Sticky Notes)
+    - Plex
+    - Tor Browser
+    - NFC Tools 
+
+
+    ? Resize master 
+    ? Scanner
+    ? Renamer 
+    ? balenaEtcher
