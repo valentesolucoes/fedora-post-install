@@ -106,3 +106,42 @@
     # Configurar Autenticação
     $ gh auth login
     $ gh config set editor nano
+
+- MySQL WorkBench
+    Acessar o site https://dev.mysql.com/downloads/repo/yum/
+    Baixar o pacote do MySQL para o Fedora 41
+    Abrir o terminal e acessar a pasta downloads
+    $ sudo dnf install ./mysql84-community-release-fc41-1.noarch.rpm
+    $ sudo dnf update -y
+    $ sudo dnf install mysql-server -y
+
+    # Habilitar e iniciar o Mysql server
+    $ sudo systemctl enable mysqld
+    $ sudo systemctl start mysqld
+
+    # Verificando o status do serviço
+    $ $ sudo systemctl status mysqld
+
+    # Anotar a senha de segurança temporaria:
+    $ sudo grep 'temporary password' /var/log/mysqld.log
+      cf1Q:iBqpugX
+
+    # Configurar o MySQL pela primeira vez    
+    $ sudo mysql_secure_installation
+    # colocamos a senha gerada e depois redefinimos uma nova senha para root
+      123@Mudar (a senha precisa ter numeros, caracteres especiais e letras, sendo ao menos uma maiuscula)
+      Remove anonymous users? y
+      Disallow root login remotely? n
+      Remove test database and access to it? n
+      Reload privilege tables now? y
+
+    # Testando o MySQL
+    $ mysql -u root -p (fornecer a nova senha)
+
+    # Instalação do MySQL WorkBench
+    - Acessar o site https://dev.mysql.com/downloads/workbench/?os=src
+    - Baixe o arquivo mysql-workbench-community-8.0.41-1.fc40.x86_64.rpm
+    $ sudo dnf install -y ./mysql-workbench-community-8.0.41-1.fc40.x86_64.rpm
+
+    # Abra o programa e na primeira mensagem, marque para desabilitar
+    # Abra a conexão para root, com a senha que criamos e a na primeira mensagem, marque para desabilitar também.
