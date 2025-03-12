@@ -71,11 +71,11 @@ echo Porcentagem de bateria de notebook
 echo Compressores de arquivo...
 dnf install p7zip p7zip-plugins unrar unzip gzip -y
 
-#echo Instalando Brave Browser...
-#dnf install dnf-plugins-core -y
-#dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-#rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-#dnf install brave-browser -y
+echo Instalando Brave Browser...
+dnf install dnf-plugins-core -y
+dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+dnf install brave-browser -y
 
 echo Instalando Code...
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -83,8 +83,8 @@ echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com
 dnf check-update
 dnf install code -y
 
-#echo Instalando qbittorrent...
-#dnf install qbittorrent -y
+echo Instalando qbittorrent...
+dnf install qbittorrent -y
 
 echo Instalando Java...
 dnf install java-21-openjdk -y
