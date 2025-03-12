@@ -93,7 +93,28 @@ echo Habilitando flathub...
 flatpak remote-modify --enable flathub
 
 echo Instalando deluge torrent
-flatpak install flathub org.deluge_torrent.deluge
+flatpak install -y flathub org.deluge_torrent.deluge
+
+echo Instalando Stremio
+flatpak install -y flathub com.stremio.Stremio
+
+echo Instalando DB Browser for SQLite
+flatpak install -y flathub org.sqlitebrowser.sqlitebrowser
+
+echo Instalando Sticky Notes
+flatpak install -y flathub com.vixalien.sticky
+
+echo Instalando Tor Browser
+flatpak install -y flathub com.github.micahflee.torbrowser-launcher
+
+echo Instalando Converseen
+flatpak install -y flathub net.fasterland.converseen
+
+echo Instalando Document Scanner
+flatpak install -y flathub org.gnome.SimpleScan
+
+echo Instalando CoreRenamer
+flatpak install -y flathub org.cubocore.CoreRenamer
 
 echo Instalando Build Essentials...
 dnf group install "C Development Tools and Libraries" "Development Tools"
@@ -115,15 +136,15 @@ wget https://download.virtualbox.org/virtualbox/7.1.0/Oracle_VM_VirtualBox_Exten
 reboot
 
 echo Instalando Onedrive (onedrive-cli)
-dnf copr enable jstaf/onedriver
-dnf install onedriver    
+dnf copr enable jstaf/onedriver -y
+dnf install -y onedriver    
 
 echo Instalando Nextcloud
-dnf install nextcloud-client
+dnf install -y nextcloud-client
 
 echo Instalando Etcher
 wget https://github.com/balena-io/etcher/releases/download/v2.1.0/balena-etcher-2.1.0-1.x86_64.rpm
-dnf install balena-etcher-*
+dnf install -y balena-etcher-*
 
 echo Outros Programas
 dnf install -y thunderbird
@@ -151,7 +172,6 @@ echo Instalando LAMP
 # + Anydesk 
 # + Rusrtdesk 
 # + MySQL Server / MySQL Workbench
-
 # + Stremio
 # + DB Browser for SQLite
 # + Sticky Notes
