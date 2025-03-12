@@ -165,18 +165,29 @@
     Instale o timeshift e crie um ponto de restauração
 
     $ sudo dnf install timeshift -y
-
+    $ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    
     Instalar gerenciador de extensões gnome, ajustes do gnome e extensões
 
     Tema do Mac OS Sonoma 
 
     $ sudo dnf install git
+
+    # wallpapers
+    $ git clone https://github.com/vinceliuice/WhiteSur-wallpapers (wallpapers)
+    $ cd WhiteSur-wallpapers
+    $ sudo ./install-gnome-Backgrounds.sh
+    $ ./install-wallpapers.sh
+    # Instalação do Thema do MacOS
     $ git clone https://github.com/vinceliuice/WhiteSur-gtk-theme
     $ cd WhiteSur-gtk-theme
     $ ./install.sh (não precisa estar como root/adm)
     $ ./install.sh -h (para ver todas as opções)
-    $ ./install.sh -m -t all -l -N stable --round
-    $ sudo ./tweaks.sh -g
+    $ ./install.sh -n WhiteSur -t all -m -N stable -l --shell -i apple -h bigger --round
+    # Ajuste do Firefox
+    $ sudo ./tweaks.sh -g -nd -b ~/Downloads/SequoiaLight.png (Opcional)
+    # Paper de parede da tela de login (Opcional)
+    $ sudo ./tweaks.sh -g -nd -b ~/Downloads/SequoiaLight.png
 
     Entrar neste site e baixe o tema de icones: https://www.pling.com/p/1102582/
     Extrair arquivos para uma pasta que será criada na Home/Pasta pessoal com o nome de .icons
@@ -186,12 +197,13 @@
     Abra o tweaks ou ajustes do Gnome e mude os temas
 
     Apperance
-    icons - cupertino-sonoma
-    shell - WhiteSurDark
-    legacyApplications - WhiteSurDark
+    Icons - cupertino-sonoma
+    Shell - WhiteSur-Dark-blue
+    Legacy Applications - WhiteSur-Dark-blue
 
     Windows Titlebars
-    mudar botões para o lado esquerdo
+    Hbilitar minimizar e maximizar
+    Mudar botões para o lado esquerdo
 
     Extensões para adicionar
     
@@ -210,7 +222,6 @@
             Animação: EsayInOutQuart
             AppSwitcher: 
     //  Dash2Dock Animated
-    //  Dash to Dock
     //  Desktop Icons NG (DING)
     //  Gnome 4x UI Improvements
     //  GSConmnect
@@ -231,18 +242,11 @@
     //  Wallpaper Slideshow
     //  Window List (Desativado)
 
-
-
-    Baixe os wallpapers
-
-    Instalar fontes (esta parte não foi mostrada no vídeo, porém, é moleza de se fazer)
-
     Baixe o arquivo de fontes neste site: 
     https://fonts.google.com/specimen/Inter
 
     Extraia para a pasta .fonts que fica na pasta Home/Pasta pessoal (se não existir a pasta, crie uma)
     No ajustes do gnome vá até a opção fonts, texto de interface e selecione a fonte inter regular
-
 
     compatibilidade com os flatpaks
 
@@ -250,7 +254,7 @@
 
     2 ./tweaks.sh -F
 
-    3 sudo flatpak override --filesystem=xdg-config/gtk-4.0
+    3 sudo flatpak override --filesystem=xdg-config/gtk-3.0 && sudo flatpak override --filesystem=xdg-config/gtk-4.0
 
     Se não funcionarem inicialmente, reinicie o sistema. Se mesmo assim não funcionarem, tente os comandos 1 e 2 utilizando com sudo e reinicie.
 
