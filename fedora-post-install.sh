@@ -114,6 +114,16 @@ usermod -a -G vboxusers $USER
 wget https://download.virtualbox.org/virtualbox/7.1.0/Oracle_VM_VirtualBox_Extension_Pack-7.1.0.vbox-extpack
 reboot
 
+echo Instalando Onedrive (onedrive-cli)
+dnf copr enable jstaf/onedriver
+dnf install onedriver    
+
+echo Instalando Nextcloud
+dnf install nextcloud-client
+
+echo Instalando Etcher
+wget https://github.com/balena-io/etcher/releases/download/v2.1.0/balena-etcher-2.1.0-1.x86_64.rpm
+dnf install balena-etcher-*
 
 echo Outros Programas
 dnf install -y thunderbird
@@ -128,7 +138,7 @@ dnf install -y fastfetch cmatrix
 echo Instalando LAMP
 
 ######################################
-# Apps Loja
+# Apps Loja Flathub
 ######################################
 # + GitHub Desktop
 # + Gerenciador Extensões 
@@ -141,8 +151,17 @@ echo Instalando LAMP
 # + Anydesk 
 # + Rusrtdesk 
 # + MySQL Server / MySQL Workbench
-# ?
-# docker
+
+# + Stremio
+# + DB Browser for SQLite
+# + Sticky Notes
+# + Plex
+# + Tor Browser
+# + Converseen
+# + Document Scanner
+# + CoreRenamer
+
+
 # PDF Editor/Merge
 
 

@@ -314,20 +314,34 @@
     $ cd example-app
 
 - Instalação dos pacotes de nuvem
-    - Onedrive
+    - Onedrive (onedrive-cli)
+        $ sudo dnf copr enable jstaf/onedriver
+        $ sudo dnf install onedriver    
+
     - NextCloud
+        $ sudo dnf install nextcloud-client
+
     - GoogleDrive
-    - pCloudDrive
-    - Stremio
-    - Itaú
-    - DB Browser for SQLite
-    - Antnotes (Sticky Notes)
-    - Plex
-    - Tor Browser
-    - NFC Tools 
+        01  Adicionar Conta Google em Online Accounts
+        02  Abrir o Nautillus e pasta aparecerá do lado esquerdo.
+        Fonte: https://fedoramagazine.org/connect-your-google-drive-to-fedora-workstation/
 
+    - Etcher 
+        wget https://github.com/balena-io/etcher/releases/download/v2.1.0/balena-etcher-2.1.0-1.x86_64.rpm
+        $ sudo dnf install balena-etcher-*
 
-    ? Resize master 
-    ? Scanner
-    ? Renamer 
-    ? balenaEtcher
+    - pCloudDrive (Libfuse2)
+        download https://www.pcloud.com/how-to-install-pcloud-drive-linux.html?download=electron-64
+        sudo chmod +x pcloud
+        
+    - Itaú (Acessando o site e instalando o Warsaw)
+    - NFC Tools (Não rola)
+
+    - Stremio (flathub.org)
+    - DB Browser for SQLite (flathub.org)
+    - Sticky Notes (flathub.org)
+    - Plex (flathub.org)
+    - Tor Browser (flathub.org)
+    - Converseen (flathub.org)
+    - Document Scanner (flathub.org)
+    - CoreRenamer (flathub.org)
