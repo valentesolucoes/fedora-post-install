@@ -195,16 +195,41 @@
 
     Extensões para adicionar
     
-    //        appindicator
-    //        desktop icons NG (DING)
-    //        dash to dock
-    //        dash2dock Animated
-    //        blur my shell
-    //        quick settings tweaker
-    //        compiz alike magic lamp effect
-    //        compiz windows effect 
-    //        ++burn my windows
-    //        Wallpaper Slideshow
+    //  Appindicator and KStatusNotifierItem Support
+    //  Apps Menu
+    //  Background Logo
+    //  Blur my Shell
+            Panel: Desfoque do Painel (Desabilitado)
+            Dash: Desfoque do Dash to Dock (Desabilitado)
+    //  Burn My Windows
+            Desabilitar: Fogo
+            Habilitar: Foco
+    //  Compiz alike magic lamp effect
+    //  Compiz Windows Effect 
+    //  Coverflow Alt-Tab
+            Animação: EsayInOutQuart
+            AppSwitcher: 
+    //  Dash2Dock Animated
+    //  Dash to Dock
+    //  Desktop Icons NG (DING)
+    //  Gnome 4x UI Improvements
+    //  GSConmnect
+    //  Launche new instance (Desativado)
+    //  Places Status Indicator  (Desativado)
+    //  Quick Settings Tweakes
+    //  Search Light
+            General:
+                Search: New accelerator (Ctrl + SpaceBar )
+                Icon: Habilitar
+            Apperance:
+                Width: 0,26
+                Height: 0,40    
+                Border Thickness: 1px
+                Border Radius: Máximo
+                Background Blur: Habilitado
+    //  User Themes    
+    //  Wallpaper Slideshow
+    //  Window List (Desativado)
 
 
 
