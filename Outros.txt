@@ -108,6 +108,10 @@
     $ sudo mv libglib* disabled-libraries/
     $ sudo mv libgio* disabled-libraries/
     $ sudo mv libgmodule* disabled-libraries/
+    $ cd /otp/resolve/bin
+    $ ./resolve
+    # se der erro a respeito da libcrypt:
+    $ dnf install -y libxcrypt-compat
 
 - github
     $ dnf install -y gh
