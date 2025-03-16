@@ -124,6 +124,11 @@ dnf install -y gnome-shell-extension-gsconnect
 # Depois em extenções instalar a extensão gsconnect e
 # Instalar o KDE Connect no celular
 
+echo Instalando o Ollama (IA)
+curl -fsSL https://ollama.com/install.sh | sh
+ollama run deepseeker-coder
+ollama run deepseeker-coder-v2
+
 echo Instalando VirtualBox
 dnf install -y @development-tools
 dnf install -y kernel-devel kernel-headers dkms qt5-qtx11extras
