@@ -1,3 +1,10 @@
+- Particionamento de disco 1TB
+    /boot/efi   600Mib          Partição padrão         EFI System Partition
+    /boot       1024Mib         Partição padrão         ext4
+    /swap       4Gib            LVM                     swap
+    /home       575,92GiB       LVM                     ext4
+    /           350,00GiB       LVM                     ext4
+
 - Configurações do terminal
     Preferences->Edit Profile
         Defina um nome para o perfil;
@@ -30,7 +37,7 @@
             Calculadora - gnome-calculator - Super+C
             
 - Install zsh
-    $ sudo dnf install zsh
+    $ sudo dnf install -y zsh
     $ zsh
 
     Escolha a opção (1) para poder fazer as configurações básicas.
@@ -80,52 +87,23 @@
 
     Reinicie o computador
 
-- AMD Radeon RX 5500 XT Driver/DaVinci Resolve
-    Ref: https://www.youtube.com/watch?v=pUkOswsIk_M
-    $ sudo dnf install rocminfo -y
-    $ sudo dnf install rocm-opencl -y
-    $ sudo dnf install rocm-clinfo -y
-    $ sudo dnf install rocm-hip -y
-
-    # Reinicar
-    Donwload DaVinci Resolve 19 -> Linux 
-    Na pasta Donwload, extraia o arquivo e acesse a pasta no terminal
-
-    Instalar dependencias
-    $ sudo dnf install libscrypt-compat -y
-
-    Instalação:
-    Clique sobre o arquivo .run e copie o nome do arquivo para a memória
-    Agora digite o comando abaixo, juntamente com o nome do arquivo de instalação do DaVinci
-    $ sudo SKIP_PACKAGE_CHECK=1 ./DaVinci_Resolve_Studio_19.1.3_Linux.run
-    Prossiga com a instalação na tela grafica que se abre, posteriormente.
-    Next ->  DaVinci Resolve Open FX Renderer (Marque essa opção se aparecer) -> Next -> Next (Agree) -> Show Detailed Log 
-    -> Start Install -> Finish
-
-    Remover Old libraries:
-    $ cd /opt/resolve/libs/
-    $ sudo mkdir disabled-libraries
-    $ sudo mv libglib* disabled-libraries/
-    $ sudo mv libgio* disabled-libraries/
-    $ sudo mv libgmodule* disabled-libraries/
-    $ cd /otp/resolve/bin
-    $ ./resolve
-    # se der erro a respeito da libcrypt:
-    $ dnf install -y libxcrypt-compat
-
 - GitHub
     $ dnf install -y gh
     $ dnf update gh
 
     # Configurar Autenticação
     $ gh auth login
+        Where do you use GitHub? GitHub.com
+        What is your preferred protocol for Git operations on this host? HTTPS
+        Authenticate Git with your GitHub credentials? Yes
+        How would you like to authenticate GitHub CLI? Login with a web browser
     $ gh config set editor nano
 
 - MySQL WorkBench
     Acessar o site https://dev.mysql.com/downloads/repo/yum/
     Baixar o pacote do MySQL para o Fedora 41
     Abrir o terminal e acessar a pasta downloads
-    $ sudo dnf install ./mysql84-community-release-fc41-1.noarch.rpm
+    $ sudo dnf install -y ./mysql84-community-release-fc41-1.noarch.rpm
     $ sudo dnf update -y
     $ sudo dnf install mysql-server -y
 
@@ -134,11 +112,11 @@
     $ sudo systemctl start mysqld
 
     # Verificando o status do serviço
-    $ $ sudo systemctl status mysqld
+    $ sudo systemctl status mysqld
 
     # Anotar a senha de segurança temporaria:
     $ sudo grep 'temporary password' /var/log/mysqld.log
-      cf1Q:iBqpugX
+      _ua)Qj*(d6gl
 
     # Configurar o MySQL pela primeira vez    
     $ sudo mysql_secure_installation
@@ -152,6 +130,10 @@
     # Testando o MySQL
     $ mysql -u root -p (fornecer a nova senha)
 
+    # Remover MySQL
+    sudo rpm -e --nodeps mysql-community-libs mysql-community-common mysql-community-server
+
+
     # Instalação do MySQL WorkBench
     - Acessar o site https://dev.mysql.com/downloads/workbench/?os=src
     - Baixe o arquivo mysql-workbench-community-8.0.41-1.fc40.x86_64.rpm
@@ -160,6 +142,21 @@
     # Abra o programa e na primeira mensagem, marque para desabilitar
     # Abra a conexão para root, com a senha que criamos e a na primeira mensagem, marque para desabilitar também.
 
+    # Para Adicionar um novo usuário, após se conectar com o usuário root, execute o seguinte comando:
+    $ CREATE USER 'seu_usuario'@'localhost' IDENTIFIED BY 'sua_senha';
+
+    # Para conceder privilégios ao usuário, execute o seguinte comando:
+    $ GRANT ALL PRIVILEGES ON meu_banco.* TO 'novo_usuario'@'localhost';
+
+    # Então Aplique as alterações:
+    $ FLUSH PRIVILEGES;
+
+    # Acesse com os dados do novo usuário e então creie o SCHEMA:
+    $ CREATE SCHEMA meu_banco;
+
+    # Opcional, definir o path para a pasta dumps:
+        Menu -> Edit -> Preferences -> Administration -> Export Directory Path: 
+        
 - Customização do Gnome
     Atualize o sistema com estes comando pelo terminal:
     $ sudo dnf update --refresh
@@ -189,9 +186,9 @@
     $ ./install.sh -h (para ver todas as opções)
     $ ./install.sh -n WhiteSur -t all -m -N stable -l --shell -i fedora -h bigger --round
     # Ajuste do Firefox
-    $ sudo ./tweaks.sh -g -nd -b ~/Downloads/SequoiaLight.png (Opcional)
+    $ sudo ./tweaks.sh -g -nd -b ~/Imagens/SequoiaLight.png (Opcional)
     # Paper de parede da tela de login (Opcional)
-    $ sudo ./tweaks.sh -g -nd -b ~/Downloads/SequoiaLight.png
+    $ sudo ./tweaks.sh -g -nd -b ~/Imagens/SequoiaLight.png
 
     Entrar neste site e baixe o tema de icones: https://www.pling.com/p/1102582/
     Extrair arquivos para uma pasta que será criada na Home/Pasta pessoal com o nome de .icons
@@ -219,7 +216,7 @@
             Dash: Desfoque do Dash to Dock (Desabilitado)
     //  Burn My Windows
             Desabilitar: Fogo
-            Habilitar: Foco
+            Habilitar: Energizar B
     //  Compiz alike magic lamp effect
     //  Compiz Windows Effect 
     //  Coverflow Alt-Tab
@@ -228,6 +225,7 @@
     //  Dash2Dock Animated
     //  Desktop Icons NG (DING)
     //  Gnome 4x UI Improvements
+    //  No overview at start-up
     //  GSConmnect
     //  Launche new instance (Desativado)
     //  Places Status Indicator  (Desativado)
@@ -297,7 +295,7 @@
 
 - Instalando Laravel, Composer, node.js e npm
     # Node.js and npm
-    $ sudo sudo dnf install nodejs
+    $ sudo dnf install -y nodejs
 
     # Composer
     $ curl -sS https://getcomposer.org/installer | php
@@ -328,3 +326,52 @@
     sudo chmod +x pcloud
     sudo ./pcloud
         
+- AMD Radeon RX 5500 XT Driver/DaVinci Resolve
+    Ref: https://www.youtube.com/watch?v=pUkOswsIk_M
+    $ sudo dnf install rocminfo -y
+    $ sudo dnf install rocm-opencl -y
+    $ sudo dnf install rocm-clinfo -y
+    $ sudo dnf install rocm-hip -y
+
+    # Reinicar
+    Donwload DaVinci Resolve 19 -> Linux 
+    Na pasta Donwload, extraia o arquivo e acesse a pasta no terminal
+
+    Instalar dependencias
+    $ sudo dnf install libscrypt-compat -y
+
+    Instalação:
+    Clique sobre o arquivo .run e copie o nome do arquivo para a memória
+    Agora digite o comando abaixo, juntamente com o nome do arquivo de instalação do DaVinci
+    $ sudo SKIP_PACKAGE_CHECK=1 ./DaVinci_Resolve_Studio_19.1.3_Linux.run
+    Prossiga com a instalação na tela grafica que se abre, posteriormente.
+    Next ->  DaVinci Resolve Open FX Renderer (Marque essa opção se aparecer) -> Next -> Next (Agree) -> Show Detailed Log 
+    -> Start Install -> Finish
+
+    Remover Old libraries:
+    $ cd /opt/resolve/libs/
+    $ sudo mkdir disabled-libraries
+    $ sudo mv libglib* disabled-libraries/
+    $ sudo mv libgio* disabled-libraries/
+    $ sudo mv libgmodule* disabled-libraries/
+    $ cd /opt/resolve/bin
+    $ ./resolve
+    # se der erro a respeito da libcrypt:
+    $ dnf install -y libxcrypt-compat
+
+- Instalar drivers da placa de video AMD Radeon RX 5500 XT
+    # Entrar no site da AMD e baixar a última versão de driver para linux RHEL x86 64-Bit)
+    # amdgpu-install-6.3.60304-1.el9.noarch.rpm
+    % cd ~/Downloads
+    $ sudo dnf install -y inxi
+    $ sudo dnf install -y ./amdgpu-install-6.3.60304-1.el9.noarch.rpm
+    $ amdgpu-install
+    $ cd /etc/yum.repos.d/
+    # Editar o arqruivos amdgpu-proprietary.repo e amdgpu-repo e substituir a expressão $amdgpudistro pela versão que foi baixada (9.5)
+    $ amdgpu-install
+    # no caso dessa instalação acusou falta de xorg-x11-amdgpu-drv-amdgpu
+    $ sudo dnf install -y gnome-session-xsession
+    $ amdgpu-install
+    xrandr --newmode "3440x1440_100" 419.50 3440 3696 4064 4688 1440 1443 1453 1493 -hsync +vsync
+    xrandr --addmode DisplayPort-2 3440x1440_100
+    xrandr --output DisplayPort-2 --mode 3440x1440_100
