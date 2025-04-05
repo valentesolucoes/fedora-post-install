@@ -16,6 +16,9 @@ grep -qxF "deltarpm=true" /etc/dnf/dnf.conf || echo "deltarpm=true" >> /etc/dnf/
 echo Atualizando sistema...
 dnf update -y && dnf upgrade -y
 
+echo instalando GParted...
+dnf install -y gparted
+
 echo Instalando dnf5...
 dnf install dnf5 dnf5-plugins -y
 
@@ -31,12 +34,12 @@ dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-rel
 
 echo Instalando RPM Fusion não livres...
 dnf upgrade --refresh -y
-dnf -y groupupdate core 
+dnf group upgrade core -y 
 dnf install -y rpmfusion-free-release-tainted
 dnf install -y rpmfusion-nonfree-release-rawhide 
 dnf install -y dnf-plugins-core
 
-echo Instalando driver da Broadcom (WiFi/Bluetooth)...
+echo Instalando driver da Broadcom...
 dnf install -y broadcom-wl
 
 echo Suporte a SNAP...
@@ -53,18 +56,17 @@ dnf install gnome-tweak-tool gnome-extensions-app -y
 echo Instalando Google Chrome...
 dnf install wget -y
 dnf install fedora-workstation-repositories
-dnf config-manager --set-enabled google-chrome
-dnf install google-chrome-stable -y
+dnf config-manager setopt google-chrome.enabled=1
+dnf install -y google-chrome-stable
 
 echo Instalando Codecs de Mídia...
 dnf config-manager setopt fedora-isco-openh264.enabled=1
-dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav mozilla-openh264 --exclude=gstreamer1-plugins-bad-free-devel - y
+dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav mozilla-openh264 --exclude=gstreamer1-plugins-bad-free-devel -y
 dnf install lame --exclude=lame-devel -y
-dnf group upgrade --with-optional --allowerasing Multimedia -y
+# erro nessa linha dnf group upgrade --with-optional --allowerasing Multimedia -y
 
 echo Instalando vlc...
 dnf install vlc -y
-
 dnf group install sound-and-video -y
 
 echo Porcentagem de bateria de notebook
@@ -113,14 +115,14 @@ flatpak install -y flathub com.github.micahflee.torbrowser-launcher
 echo Instalando Converseen
 flatpak install -y flathub net.fasterland.converseen
 
-echo Instalando Document Scanner
-flatpak install -y flathub org.gnome.SimpleScan
-
 echo Instalando CoreRenamer
 flatpak install -y flathub org.cubocore.CoreRenamer
 
+echo Instalando Document Scanner
+flatpak install -y flathub org.gnome.SimpleScan
+
 echo Instalando Build Essentials...
-dnf group install "C Development Tools and Libraries" "Development Tools"
+dnf group install -y c-development development-tools
 
 echo Instalando extensão GSCONNECT
 dnf install -y gnome-shell-extension-gsconnect
@@ -145,7 +147,7 @@ reboot
 
 echo Instalando Onedrive (onedrive-cli)
 dnf copr enable jstaf/onedriver -y
-dnf install -y onedriver    
+dnf install -y onedriver
 
 echo Instalando Nextcloud
 dnf install -y nextcloud-client
@@ -155,16 +157,7 @@ wget https://github.com/balena-io/etcher/releases/download/v2.1.0/balena-etcher-
 dnf install -y balena-etcher-*
 
 echo Outros Programas
-dnf install -y thunderbird
-dnf install -y filezilla
-dnf install -y gimp
-dnf install -y speedtest-cli
-dnf install -y htop
-dnf install -y libreoffice
-dnf install -y calibre
-dnf install -y fastfetch cmatrix
-
-echo Instalando LAMP
+dnf install -y thunderbird filezilla gimp htop libreoffice calibre fastfetch cmatrix
 
 ######################################
 # Apps Loja Flathub
@@ -179,17 +172,8 @@ echo Instalando LAMP
 # + KeepassXC
 # + Anydesk 
 # + Rusrtdesk 
-# + MySQL Server / MySQL Workbench
-# + Stremio
-# + DB Browser for SQLite
-# + Sticky Notes
+# + LibreOffice
 # + Plex
-# + Tor Browser
-# + Converseen
-# + Document Scanner
-# + CoreRenamer
-
-
 # PDF Editor/Merge
 
 
