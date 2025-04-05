@@ -36,6 +36,9 @@ dnf install -y rpmfusion-free-release-tainted
 dnf install -y rpmfusion-nonfree-release-rawhide 
 dnf install -y dnf-plugins-core
 
+echo Instalando driver da Broadcom (WiFi/Bluetooth)...
+dnf install -y broadcom-wl
+
 echo Suporte a SNAP...
 dnf install -y snapd
 ln -s /var/lib/snapd/snap /snap
