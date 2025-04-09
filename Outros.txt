@@ -377,6 +377,9 @@
     Salvar sempre como: Excel 2007-365;
     Aplicar;
 
+- Restaurar fonts TTF
+    Extraia totas as fonts para a pasta $USER/.fonts
+    
 - Instalar drivers da placa de video AMD Radeon RX 5500 XT
     # Entrar no site da AMD e baixar a última versão de driver para linux RHEL x86 64-Bit)
     # amdgpu-install-6.3.60304-1.el9.noarch.rpm
