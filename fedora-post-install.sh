@@ -159,6 +159,7 @@ dnf install -y balena-etcher-*
 echo Outros Programas
 dnf install -y thunderbird filezilla gimp htop libreoffice calibre fastfetch cmatrix
 
+
 ######################################
 # Apps Loja Flathub
 ######################################
