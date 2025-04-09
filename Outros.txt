@@ -225,6 +225,7 @@
     //  Dash2Dock Animated
     //  Desktop Icons NG (DING)
     //  Gnome 4x UI Improvements
+    //  Just Perfection
     //  No overview at start-up
     //  GSConmnect
     //  Launche new instance (Desativado)
@@ -358,6 +359,23 @@
     $ ./resolve
     # se der erro a respeito da libcrypt:
     $ dnf install -y libxcrypt-compat
+
+- GIMP
+    Após instalação do GIMP, abra-o e torne a fecha-lo para que as pastas sejam criadas, apó isso, baixar https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip 
+    Extraia o conteúdo do arquivo zip na sua pasta pessoal (.config e .local - eles são os mais importantes) e sobrescreva os arquivos se necessário;
+
+- LibreOffice
+    Após a instalação, acesse o programa e vá até Ferramentas -> Opções.
+    Em LibreOffice -> Exibir -> Tema de Icones: Breeze;
+    Em LibreOffice -> Avançado -> Funcionalidades opcionais: Ativar Funcionalidades experimentais, clicar em aplicar e depois reincie;
+
+    Em Carregar/Salvar -> Geral:
+    Tipo de Documentos: Documento de texto;
+    Salvar sempre como: Word 2007;
+    Aplicar
+    Tipo de Documentos: Planilhas (Calc);
+    Salvar sempre como: Excel 2007-365;
+    Aplicar;
 
 - Instalar drivers da placa de video AMD Radeon RX 5500 XT
     # Entrar no site da AMD e baixar a última versão de driver para linux RHEL x86 64-Bit)
