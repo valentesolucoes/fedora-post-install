@@ -307,7 +307,11 @@
 
     # Laravel
     $ mkdir ~/laravel 
-    $ composer global require laravel/installer
+    $ composer global require laravel/installersudo dnf install samba
+sudo systemctl enable smb --now
+firewall-cmd --get-active-zones
+sudo firewall-cmd --permanent --zone=FedoraWorkstation --add-service=samba
+sudo firewall-cmd --reload
     # nano ~/.zshrc
     # adicionar a linha: export PATH=~/.config/composer/vendor/bin:$PATH
     $ reloadbash
@@ -396,3 +400,10 @@
     xrandr --newmode "3440x1440_100" 419.50 3440 3696 4064 4688 1440 1443 1453 1493 -hsync +vsync
     xrandr --addmode DisplayPort-2 3440x1440_100
     xrandr --output DisplayPort-2 --mode 3440x1440_100
+
+- Compartilhamento de arquivos Samba
+    $ sudo dnf install samba
+    $ sudo systemctl enable smb --now
+    $ firewall-cmd --get-active-zones
+    $ sudo firewall-cmd --permanent --zone=FedoraWorkstation --add-service=samba
+    $ sudo firewall-cmd --reload    
