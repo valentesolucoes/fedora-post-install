@@ -217,6 +217,7 @@
     //  Burn My Windows
             Desabilitar: Fogo
             Habilitar: Energizar B
+    //  Clipboard indicator
     //  Compiz alike magic lamp effect
     //  Compiz Windows Effect 
     //  Coverflow Alt-Tab
@@ -226,6 +227,7 @@
     //  Desktop Icons NG (DING)
     //  Gnome 4x UI Improvements
     //  Just Perfection
+    //  Move click
     //  No overview at start-up
     //  GSConmnect
     //  Launche new instance (Desativado)
