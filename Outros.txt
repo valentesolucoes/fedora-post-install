@@ -227,7 +227,7 @@
     //  Desktop Icons NG (DING)
     //  Gnome 4x UI Improvements
     //  Just Perfection
-    //  Move click
+    //  moveclo-ck
     //  No overview at start-up
     //  GSConmnect
     //  Launche new instance (Desativado)
