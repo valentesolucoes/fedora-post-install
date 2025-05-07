@@ -8,7 +8,7 @@
 - Configurações do terminal
     Preferencias->Perfis
         Defina um nome para o perfil;
-        Copie o idenficador para a memória; 
+        Copie o idenficador para a memória; [63d8b69ffe5ee0939c67b06c6818a82b]
     Preferencias->Aparência    
         Paleta->Catppuccin Mocha.
         Fonte->Fonte Personalizada: Monospace Regular 14
@@ -304,11 +304,13 @@
 
     # Laravel
     $ mkdir ~/laravel 
-    $ composer global require laravel/installersudo dnf install samba
-sudo systemctl enable smb --now
-firewall-cmd --get-active-zones
-sudo firewall-cmd --permanent --zone=FedoraWorkstation --add-service=samba
-sudo firewall-cmd --reload
+    $ composer global require laravel/installer
+    # Instalar Samba
+    $ sudo dnf install -y samba
+    $ sudo systemctl enable smb --now
+    $ firewall-cmd --get-active-zones
+    $ sudo firewall-cmd --permanent --zone=FedoraWorkstation --add-service=samba
+    $ sudo firewall-cmd --reload    
     # nano ~/.zshrc
     # adicionar a linha: export PATH=~/.config/composer/vendor/bin:$PATH
     $ reloadbash
@@ -330,22 +332,22 @@ sudo firewall-cmd --reload
         
 - AMD Radeon RX 5500 XT Driver/DaVinci Resolve
     Ref: https://www.youtube.com/watch?v=pUkOswsIk_M
-    $ sudo dnf install rocminfo -y
-    $ sudo dnf install rocm-opencl -y
-    $ sudo dnf install rocm-clinfo -y
-    $ sudo dnf install rocm-hip -y
+    $ sudo dnf install -y rocminfo
+    $ sudo dnf install -y rocm-opencl
+    $ sudo dnf install -y rocm-clinfo
+    $ sudo dnf install -y rocm-hip
 
     # Reinicar
     Donwload DaVinci Resolve 19 -> Linux 
     Na pasta Donwload, extraia o arquivo e acesse a pasta no terminal
 
     Instalar dependencias
-    $ sudo dnf install libscrypt-compat -y
+    $ sudo dnf install -y libscrypt-compat zlib
 
     Instalação:
     Clique sobre o arquivo .run e copie o nome do arquivo para a memória
     Agora digite o comando abaixo, juntamente com o nome do arquivo de instalação do DaVinci
-    $ sudo SKIP_PACKAGE_CHECK=1 ./DaVinci_Resolve_Studio_19.1.3_Linux.run
+    $ sudo SKIP_PACKAGE_CHECK=1 ./DaVinci_Resolve_19.1.4_Linux.run
     Prossiga com a instalação na tela grafica que se abre, posteriormente.
     Next ->  DaVinci Resolve Open FX Renderer (Marque essa opção se aparecer) -> Next -> Next (Agree) -> Show Detailed Log 
     -> Start Install -> Finish
@@ -359,7 +361,7 @@ sudo firewall-cmd --reload
     $ cd /opt/resolve/bin
     $ ./resolve
     # se der erro a respeito da libcrypt:
-    $ dnf install -y libxcrypt-compat
+    $ sudo dnf install -y libxcrypt-compat
 
 - GIMP
     Após instalação do GIMP, abra-o e torne a fecha-lo para que as pastas sejam criadas, apó isso, baixar https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip 
@@ -377,6 +379,12 @@ sudo firewall-cmd --reload
     Tipo de Documentos: Planilhas (Calc);
     Salvar sempre como: Excel 2007-365;
     Aplicar;
+
+    Abra o Writer
+    Clique em Exibir -> interface do usuário
+    Selecione em abas -> Aplicar a todos -> Fechar
+    Clique em Exibir -> E nas abas selecione Barra de menu.
+    Repetir esse último procedimento no Calc
 
 - Restaurar fonts TTF
     Extraia totas as fonts para a pasta $USER/.fonts
@@ -398,9 +406,10 @@ sudo firewall-cmd --reload
     xrandr --addmode DisplayPort-2 3440x1440_100
     xrandr --output DisplayPort-2 --mode 3440x1440_100
 
-- Compartilhamento de arquivos Samba
-    $ sudo dnf install samba
-    $ sudo systemctl enable smb --now
-    $ firewall-cmd --get-active-zones
-    $ sudo firewall-cmd --permanent --zone=FedoraWorkstation --add-service=samba
-    $ sudo firewall-cmd --reload    
++ Instalar drivers da placa de video no Mac Mini 2011 (driver proprietário da NVIDIA)
+    Após a instalação do DaVince Resolve 19.0.4 no Fedora 42, estou recebendo a seguinte mensagem de erro ao roda-lo:
+    GPU Initialization Failed
+    DaVinci Resolve could not initialize OpenGL. Please ensure that the latest graphics drivers are installed.
+    $ sudo dnf install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda
+    Instale bibliotecas OpenGL de 32 bits (se for sistema 64-bit)
+    $ sudo dnf install mesa-libGL.i686
