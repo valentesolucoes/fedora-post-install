@@ -6,24 +6,26 @@
     /           350,00GiB       LVM                     ext4
 
 - Configurações do terminal
-    Preferences->Edit Profile
+    Preferencias->Perfis
         Defina um nome para o perfil;
-        Copie o idenficador para a memória;
-        Em Color->Palettte selecione Catppuccin Mocha.
-    Preferences->Appearance    
-        Font->Custom Font: Monospace Regular 14
-        Blinking Text: Focused
-        Cursor->Cursor Shape: I-Beam
-    Preferences->Behavior
-        Restore Session: Off
-        Restore Windows Size: 120x30
+        Copie o idenficador para a memória; 
+    Preferencias->Aparência    
+        Paleta->Catppuccin Mocha.
+        Fonte->Fonte Personalizada: Monospace Regular 14
+        Texto Intermitente-> Em foco
+        Cursor->Forma do Cursor-> I-Beam
+    Preferencias->Comportamento
+        Restaurar Sessão: Off
+        Restaurar tamanho da Janela: off -> 120x30
     Reinicie o terminal    
     Para definir transparencia digite:
     $ dconf write /org/gnome/Ptyxis/Profiles/*** Your-profile-ID ***/opacity 0.90 *** Subsituir pelo idenficador ***
-    Aogra em Preferences->Appearance, teremos a opção transparencia
+    Aogra em Preferencias->Aparência, teremos a opção transparencia
 
 - Configurações do Nautillus
-    - Ordernar pastas antes de arquivos;
+    Preferencias->Geral->Ordernar pastas antes de arquivos;
+    Preferencias->Ações opcionais: Criar atalho e excluir permanentemente
+    
     Obs: CTRL+H exibe/Oculta arquivos ocultos
     - Abrir com code (fechar o nautilus antes):
         $ wget -qO- https://raw.githubusercontent.com/harry-cpp/code-nautilus/master/install.sh | bash
@@ -88,8 +90,8 @@
     Reinicie o computador
 
 - GitHub
-    $ dnf install -y gh
-    $ dnf update gh
+    $ sudo dnf install -y gh
+    $ sudo dnf update -y gh
 
     # Configurar Autenticação
     $ gh auth login
@@ -99,13 +101,9 @@
         How would you like to authenticate GitHub CLI? Login with a web browser
     $ gh config set editor nano
 
-- MySQL WorkBench
-    Acessar o site https://dev.mysql.com/downloads/repo/yum/
-    Baixar o pacote do MySQL para o Fedora 41
-    Abrir o terminal e acessar a pasta downloads
-    $ sudo dnf install -y ./mysql84-community-release-fc41-1.noarch.rpm
+- MySQL WorkBench Fedora 42
     $ sudo dnf update -y
-    $ sudo dnf install mysql-server -y
+    $ sudo dnf install -y mysql-server
 
     # Habilitar e iniciar o Mysql server
     $ sudo systemctl enable mysqld
@@ -114,14 +112,9 @@
     # Verificando o status do serviço
     $ sudo systemctl status mysqld
 
-    # Anotar a senha de segurança temporaria:
-    $ sudo grep 'temporary password' /var/log/mysqld.log
-      _ua)Qj*(d6gl
-
     # Configurar o MySQL pela primeira vez    
     $ sudo mysql_secure_installation
-    # colocamos a senha gerada e depois redefinimos uma nova senha para root
-      123@Mudar (a senha precisa ter numeros, caracteres especiais e letras, sendo ao menos uma maiuscula)
+      Responda n na pergunta sobre instalar validador de senha; 
       Remove anonymous users? y
       Disallow root login remotely? n
       Remove test database and access to it? n
@@ -133,11 +126,10 @@
     # Remover MySQL
     sudo rpm -e --nodeps mysql-community-libs mysql-community-common mysql-community-server
 
-
     # Instalação do MySQL WorkBench
     - Acessar o site https://dev.mysql.com/downloads/workbench/?os=src
     - Baixe o arquivo mysql-workbench-community-8.0.41-1.fc40.x86_64.rpm
-    $ sudo dnf install -y ./mysql-workbench-community-8.0.41-1.fc40.x86_64.rpm
+    $ sudo dnf install -y ./mysql-workbench-community-8.0.42-1.fc40.x86_64.rpm
 
     # Abra o programa e na primeira mensagem, marque para desabilitar
     # Abra a conexão para root, com a senha que criamos e a na primeira mensagem, marque para desabilitar também.
@@ -155,7 +147,7 @@
     $ CREATE SCHEMA meu_banco;
 
     # Opcional, definir o path para a pasta dumps:
-        Menu -> Edit -> Preferences -> Administration -> Export Directory Path: 
+        Menu -> Edit -> Preferencias -> Administration -> Export Directory Path: 
         
 - Customização do Gnome
     Atualize o sistema com estes comando pelo terminal:
@@ -177,7 +169,7 @@
     # wallpapers
     $ git clone https://github.com/vinceliuice/WhiteSur-wallpapers (wallpapers)
     $ cd WhiteSur-wallpapers
-    $ sudo ./install-gnome-Backgrounds.sh
+    $ sudo ./install-gnome-backgrounds.sh
     $ ./install-wallpapers.sh
     # Instalação do Thema do MacOS
     $ git clone https://github.com/vinceliuice/WhiteSur-gtk-theme
@@ -185,10 +177,12 @@
     $ ./install.sh (não precisa estar como root/adm)
     $ ./install.sh -h (para ver todas as opções)
     $ ./install.sh -n WhiteSur -t all -m -N stable -l --shell -i fedora -h bigger --round
+    # Se der erro, rode o comando abaixo e depois tente novamente:
+    $ ./parse-sass.sh
     # Ajuste do Firefox
-    $ sudo ./tweaks.sh -g -nd -b ~/Imagens/SequoiaLight.png (Opcional)
+    $ ./tweaks.sh -f monterey
     # Paper de parede da tela de login (Opcional)
-    $ sudo ./tweaks.sh -g -nd -b ~/Imagens/SequoiaLight.png
+    $ sudo ./tweaks.sh -g -nd -b ~/Imagens/WhiteSur-light.png
 
     Entrar neste site e baixe o tema de icones: https://www.pling.com/p/1102582/
     Extrair arquivos para uma pasta que será criada na Home/Pasta pessoal com o nome de .icons
@@ -199,16 +193,17 @@
 
     Apperance
     Icons - cupertino-sonoma
-    Shell - WhiteSur-Dark-blue
+    Shell - WhiteSur-Dark-blue*
     Legacy Applications - WhiteSur-Dark-blue
 
+    * Se o shell não estiver habilitado, 
     Windows Titlebars
     Hbilitar minimizar e maximizar
     Mudar botões para o lado esquerdo
 
     Extensões para adicionar
     
-    //  Appindicator and KStatusNotifierItem Support
+    --  Appindicator and KStatusNotifierItem Support
     //  Apps Menu
     //  Background Logo
     //  Blur my Shell
@@ -227,10 +222,10 @@
     //  Desktop Icons NG (DING)
     //  Gnome 4x UI Improvements
     //  Just Perfection
-    //  moveclo-ck
+    //  moveclock
     //  No overview at start-up
     //  GSConmnect
-    //  Launche new instance (Desativado)
+    //  Launch new instance (Desativado)
     //  Places Status Indicator  (Desativado)
     //  Quick Settings Tweakes
     //  Search Light
