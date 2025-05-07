@@ -160,17 +160,17 @@ dnf install -y balena-etcher-*
 echo Outros Programas
 dnf install -y thunderbird filezilla htop libreoffice calibre fastfetch cmatrix
 
-
 ######################################
 # Apps Loja Flathub
 ######################################
+# + Gnome Password Generator
+#
 # + GitHub Desktop
 # + Gerenciador Extensões 
 # + spotify
 # + discord
 # + ZapZap (whatsapp)
 # + Telegram 
-# + Gnome Password Generator
 # + KeepassXC
 # + Anydesk 
 # + Rustdesk 
