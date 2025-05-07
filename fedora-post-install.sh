@@ -20,7 +20,7 @@ echo instalando GParted...
 dnf install -y gparted
 
 echo Instalando dnf5...
-dnf install dnf5 dnf5-plugins -y
+dnf install -y dnf5 dnf5-plugins
 
 echo Firmware Updates...
 fwupdmgr get-devices
@@ -43,15 +43,14 @@ echo Instalando driver da Broadcom WiFi/Bluetooth...
 dnf install -y broadcom-wl
 
 echo Suporte a SNAP...
-dnf install -y snapd
-ln -s /var/lib/snapd/snap /snap
-reboot now
+dnf install -y snapd; ln -s /var/lib/snapd/snap /snap
+# reboot now
 
 echo Suporte a DVD...
 dnf install -y libdvdcss
 
 echo Instalando Gnome Tweaks...
-dnf install gnome-tweak-tool gnome-extensions-app -y
+dnf install -y gnome-tweak-tool gnome-extensions-app
 
 echo Instalando Google Chrome...
 dnf install wget -y
@@ -61,20 +60,19 @@ dnf install -y google-chrome-stable
 
 echo Instalando Codecs de Mídia...
 dnf config-manager setopt fedora-isco-openh264.enabled=1
-dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav mozilla-openh264 --exclude=gstreamer1-plugins-bad-free-devel -y
-dnf install lame --exclude=lame-devel -y
+dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav mozilla-openh264 --exclude=gstreamer1-plugins-bad-free-devel
+dnf install -y lame --exclude=lame-devel
 # erro nessa linha dnf group upgrade --with-optional --allowerasing Multimedia -y
 
 echo Instalando vlc...
-dnf install vlc -y
-dnf group install sound-and-video -y
+dnf install -y vlc
+dnf group install -y sound-and-video
 
 echo Porcentagem de bateria de notebook
 #gsettings set org.gnome.desktop.interface show-battery-percentage true
 
-
 echo Compressores de arquivo...
-dnf install p7zip p7zip-plugins unrar unzip gzip -y
+dnf install -y p7zip p7zip-plugins unrar unzip gzip
 
 echo Instalando Brave Browser...
 dnf install dnf-plugins-core -y
@@ -86,40 +84,43 @@ echo Instalando Code...
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
 dnf check-update
-dnf install code -y
+dnf install -y code
+
+echo Abrir com code...
+# Fechar code e nautilus antes
+wget -qO- https://raw.githubusercontent.com/harry-cpp/code-nautilus/master/install.sh | bash
 
 echo Instalando qbittorrent...
 dnf install qbittorrent -y
 
 echo Instalando Java...
-dnf install java-21-openjdk -y
+dnf install -y java-21-openjdk
 
 echo Habilitando flathub...
 flatpak remote-modify --enable flathub
 
-echo Instalando deluge torrent
+echo Pacotes github
+flatpak install -y flathub io.github.shiftey.Desktop
+flatpak install -y flathub org.gnome.Extensions
+flatpak install -y flathub com.spotify.Client
+flatpak install -y flathub com.discordapp.Discord
+flatpak install -y flathub com.rtosta.zapzap
+flatpak install -y flathub org.telegram.desktop
+flatpak install -y flathub io.gitlab.elescoute.password
+flatpak install -y flathub org.keepassxc.KeePassXC
+flatpak install -y flathub com.anydesk.Anydesk
+flatpak install -y flathub com.rustdesk.RustDesk
+flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub org.deluge_torrent.deluge
-
-echo Instalando Stremio
+flatpak install -y flathub io.dbeaver.DBeaverCommunity
 flatpak install -y flathub com.stremio.Stremio
-
-echo Instalando DB Browser for SQLite
 flatpak install -y flathub org.sqlitebrowser.sqlitebrowser
-
-echo Instalando Sticky Notes
 flatpak install -y flathub com.vixalien.sticky
-
-echo Instalando Tor Browser
 flatpak install -y flathub com.github.micahflee.torbrowser-launcher
-
-echo Instalando Converseen
 flatpak install -y flathub net.fasterland.converseen
-
-echo Instalando CoreRenamer
 flatpak install -y flathub org.cubocore.CoreRenamer
-
-echo Instalando Document Scanner
 flatpak install -y flathub org.gnome.SimpleScan
+flatpak install -y flathub org.gimp.GIMP
 
 echo Instalando Build Essentials...
 dnf group install -y c-development development-tools
@@ -129,10 +130,10 @@ dnf install -y gnome-shell-extension-gsconnect
 # Depois em extenções instalar a extensão gsconnect e
 # Instalar o KDE Connect no celular
 
-echo Instalando o Ollama (IA)
-curl -fsSL https://ollama.com/install.sh | sh
-ollama run deepseeker-coder
-ollama run deepseeker-coder-v2
+#echo Instalando o Ollama (IA)
+#curl -fsSL https://ollama.com/install.sh | sh
+#ollama run deepseeker-coder
+#ollama run deepseeker-coder-v2
 
 echo Instalando VirtualBox
 dnf install -y @development-tools
@@ -157,7 +158,7 @@ wget https://github.com/balena-io/etcher/releases/download/v2.1.0/balena-etcher-
 dnf install -y balena-etcher-*
 
 echo Outros Programas
-dnf install -y thunderbird filezilla gimp htop libreoffice calibre fastfetch cmatrix
+dnf install -y thunderbird filezilla htop libreoffice calibre fastfetch cmatrix
 
 
 ######################################
@@ -172,9 +173,7 @@ dnf install -y thunderbird filezilla gimp htop libreoffice calibre fastfetch cma
 # + Gnome Password Generator
 # + KeepassXC
 # + Anydesk 
-# + Rusrtdesk 
+# + Rustdesk 
 # + LibreOffice
 # + Plex
 # PDF Editor/Merge
-
-
