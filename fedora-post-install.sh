@@ -118,7 +118,7 @@ flatpak install -y flathub org.sqlitebrowser.sqlitebrowser
 flatpak install -y flathub com.vixalien.sticky
 flatpak install -y flathub com.github.micahflee.torbrowser-launcher
 flatpak install -y flathub net.fasterland.converseen
-flatpak install -y flathub org.cubocore.CoreRenamer
+# flatpak install -y flathub org.cubocore.CoreRenamer // Erros com atualizações
 flatpak install -y flathub org.gnome.SimpleScan
 flatpak install -y flathub org.gimp.GIMP
 
