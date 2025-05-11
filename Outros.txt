@@ -220,11 +220,11 @@
             AppSwitcher: 
     //  Dash2Dock Animated
     //  Desktop Icons NG (DING)
+    //  Flippery Move Clock
     //  Gnome 4x UI Improvements
-    //  Just Perfection
-    //  moveclock
-    //  No overview at start-up
     //  GSConmnect
+    //  Just Perfection
+    //  No overview at start-up
     //  Launch new instance (Desativado)
     //  Places Status Indicator  (Desativado)
     //  Quick Settings Tweakes
