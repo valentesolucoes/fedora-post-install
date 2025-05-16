@@ -59,7 +59,7 @@ dnf config-manager setopt google-chrome.enabled=1
 dnf install -y google-chrome-stable
 
 echo Instalando Codecs de Mídia...
-dnf config-manager setopt fedora-isco-openh264.enabled=1
+dnf config-manager setopt fedora-cisco-openh264.enabled=1
 dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav mozilla-openh264 --exclude=gstreamer1-plugins-bad-free-devel
 dnf install -y lame --exclude=lame-devel
 # erro nessa linha dnf group upgrade --with-optional --allowerasing Multimedia -y
