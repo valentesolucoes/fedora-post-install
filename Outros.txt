@@ -8,7 +8,7 @@
 - Configurações do terminal
     Preferencias->Perfis
         Defina um nome para o perfil;
-        Copie o idenficador para a memória; [63d8b69ffe5ee0939c67b06c6818a82b]
+        Copie o idenficador para a memória; [7818a1033d103ac874d18bb268272170]
     Preferencias->Aparência    
         Paleta->Catppuccin Mocha.
         Fonte->Fonte Personalizada: Monospace Regular 14
@@ -171,6 +171,7 @@
     $ cd WhiteSur-wallpapers
     $ sudo ./install-gnome-backgrounds.sh
     $ ./install-wallpapers.sh
+
     # Instalação do Thema do MacOS
     $ git clone https://github.com/vinceliuice/WhiteSur-gtk-theme
     $ cd WhiteSur-gtk-theme
@@ -179,10 +180,12 @@
     $ ./install.sh -n WhiteSur -t all -m -N stable -l --shell -i fedora -h bigger --round
     # Se der erro, rode o comando abaixo e depois tente novamente:
     $ ./parse-sass.sh
+
     # Ajuste do Firefox
     $ ./tweaks.sh -f monterey
+
     # Paper de parede da tela de login (Opcional)
-    $ sudo ./tweaks.sh -g -nd -b ~/Imagens/WhiteSur-light.png
+    $ sudo ./tweaks.sh -g -nd -b ~/Imagens/login/WhiteSur-light.png
 
     Entrar neste site e baixe o tema de icones: https://www.pling.com/p/1102582/
     Extrair arquivos para uma pasta que será criada na Home/Pasta pessoal com o nome de .icons
@@ -192,18 +195,17 @@
     Abra o tweaks ou ajustes do Gnome e mude os temas
 
     Apperance
-    Icons - cupertino-sonoma
-    Shell - WhiteSur-Dark-blue*
-    Legacy Applications - WhiteSur-Dark-blue
-
-    * Se o shell não estiver habilitado, 
+    -> Icons - cupertino-sonoma
+    -> Shell - WhiteSur-Dark-blue*
+    -> Legacy Applications - WhiteSur-Dark-blue
+    
     Windows Titlebars
-    Hbilitar minimizar e maximizar
-    Mudar botões para o lado esquerdo
+    - Hbilitar minimizar e maximizar
+    - Mudar botões para o lado esquerdo
 
     Extensões para adicionar
     
-    --  Appindicator and KStatusNotifierItem Support
+    //  Appindicator and KStatusNotifierItem Support
     //  Apps Menu
     //  Background Logo
     //  Blur my Shell
@@ -213,13 +215,37 @@
             Desabilitar: Fogo
             Habilitar: Energizar B
     //  Clipboard indicator
+            Tamanho do histórico: 5
     //  Compiz alike magic lamp effect
     //  Compiz Windows Effect 
     //  Coverflow Alt-Tab
             Animação: EsayInOutQuart
-            AppSwitcher: 
+            AppSwitcher: On
     //  Dash2Dock Animated
+        General:
+            Animated Icons
+            Dodge Only
+        Style icons::
+            Separator Thickness: 1px
+        Style Dash
+            Border Radius: 20% +-
+            Border Color: #FFFFFF
+        App Indicators:
+            Running indicator Style: Dots
+            Running indicator Size: Big
+        Topbar
+            Customize
+            Background Color: #000000 70%
+        Icons
+            Apps Icon
+            Trash
+            Downloads With 5 Recents
+            Calendar
     //  Desktop Icons NG (DING)
+            Desabilitar:
+                Pasta pessoal
+                Lixeira
+                External drives
     //  Flippery Move Clock
     //  Gnome 4x UI Improvements
     //  GSConmnect
@@ -228,7 +254,8 @@
     //  Launch new instance (Desativado)
     //  Places Status Indicator  (Desativado)
     //  Quick Settings Tweakes
-    //  Search Light
+            Weather Widget
+    ++  Search Light
             General:
                 Search: New accelerator (Ctrl + SpaceBar )
                 Icon: Habilitar
@@ -239,7 +266,7 @@
                 Border Radius: Máximo
                 Background Blur: Habilitado
     //  User Themes    
-    //  Wallpaper Slideshow
+    //  Wallpaper Slideshow (Desabilitado)
     //  Window List (Desativado)
 
     Baixe o arquivo de fontes neste site: 
@@ -280,7 +307,7 @@
 
     # O MySQL foi instalado junto com o mysql-workbench
     # Configurando para acesso remoto
-    sudo nano /etc/httpd/conf.d/phpMyAdmin.conf
+    nano /etc/httpd/conf.d/phpMyAdmin.conf
     Substituir
     <Directory /usr/share/phpmyadmin>
         Require local
@@ -289,7 +316,7 @@
     <Directory /usr/share/phpmyadmin>
         Require all granted
     </Directory>
-    sudo systemctl restart httpd
+    systemctl restart httpd
 
 - Instalando Laravel, Composer, node.js e npm
     # Node.js and npm
@@ -396,7 +423,7 @@
     $ sudo dnf install -y inxi
     $ sudo dnf install -y ./amdgpu-install-6.3.60304-1.el9.noarch.rpm
     $ amdgpu-install
-    $ cd /etc/yum.repos.d/
+    $ cd /etc/yum.repos.d/nano ~/.zshrc
     # Editar o arqruivos amdgpu-proprietary.repo e amdgpu-repo e substituir a expressão $amdgpudistro pela versão que foi baixada (9.5)
     $ amdgpu-install
     # no caso dessa instalação acusou falta de xorg-x11-amdgpu-drv-amdgpu
