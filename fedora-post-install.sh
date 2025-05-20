@@ -53,7 +53,7 @@ echo Instalando Gnome Tweaks...
 dnf install -y gnome-tweak-tool gnome-extensions-app
 
 echo Instalando Google Chrome...
-dnf install wget -y
+# dnf install wget -y
 dnf install fedora-workstation-repositories
 dnf config-manager setopt google-chrome.enabled=1
 dnf install -y google-chrome-stable
@@ -98,7 +98,7 @@ dnf install -y java-21-openjdk
 
 echo Habilitando flathub...
 flatpak remote-modify --enable flathub
-
+org.gimp.GIMP
 echo Pacotes github
 flatpak install -y flathub io.github.shiftey.Desktop
 flatpak install -y flathub org.gnome.Extensions
@@ -158,8 +158,7 @@ wget https://github.com/balena-io/etcher/releases/download/v2.1.0/balena-etcher-
 dnf install -y balena-etcher-*
 
 echo Outros Programas
-dnf install -y thunderbird filezilla htop libreoffice calibre fastfetch cmatrix
-dnf install -y gnome-password-generator
+dnf install -y thunderbird filezilla htop libreoffice calibre fastfetch cmatrix gnome-password-generator
 
 ######################################
 # Apps Loja Flathub
@@ -176,3 +175,5 @@ dnf install -y gnome-password-generator
 # + LibreOffice
 # + Plex
 # PDF Editor/Merge
+
+
