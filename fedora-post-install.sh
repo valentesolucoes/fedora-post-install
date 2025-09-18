@@ -38,6 +38,7 @@ dnf group upgrade core -y
 dnf install -y rpmfusion-free-release-tainted
 dnf install -y rpmfusion-nonfree-release-rawhide 
 dnf install -y dnf-plugins-core
+docker --version
 
 echo Instalando driver da Broadcom WiFi/Bluetooth...
 dnf install -y broadcom-wl
@@ -51,6 +52,15 @@ dnf install -y libdvdcss
 
 echo Instalando Gnome Tweaks...
 dnf install -y gnome-tweak-tool gnome-extensions-app
+
+echo Instalando Docker...
+dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+systemctl enable --now docker
+groupadd docker
+usermod -aG docker $USER
+newgrp docker
+
 
 echo Instalando Google Chrome...
 # dnf install wget -y
@@ -159,6 +169,40 @@ dnf install -y balena-etcher-*
 
 echo Outros Programas
 dnf install -y thunderbird filezilla htop libreoffice calibre fastfetch cmatrix gnome-password-generator
+
+echo Instalando drivers AMD
+dnf install -y clinfo inxi
+lspci -nn | grep -i "Radeon"
+# Site Radeon baixar amdgpu RHEL
+dnf install -y ./amdgpu-install-6.3.60304-1.el9.noarch.rpm
+$ amdgpu-install 
+$ cd /etc/yum.repos.d/
+# substituir $amdgpudistro por 9.5
+$ sudo nano amdgpu-proprietary.repo
+$ sudo nano amdgpu.repo
+
+# Alternativa
+$ sudo dnf install -y \
+mesa-vulkan-drivers \
+mesa-vulkan-drivers.i686 \
+mesa-libGL \
+mesa-libGL.i686 \
+mesa-libEGL \
+mesa-libEGL.i686 \
+xorg-x11-drv-amdgpu
+$ sudo dnf install -y vulkan-tools
+$ cd ~/Downloads/DaVinci_Resolve_19.1.3_Linux
+$ sudo SKIP_PACKAGE_CHECK=1 ./DaVinci_Resolve_19.1.3_Linux.run
+Remover Old libraries:
+$ cd /opt/resolve/libs/
+$ sudo mkdir disabled-libraries
+$ sudo mv libglib* disabled-libraries/
+$ sudo mv libgio* disabled-libraries/
+$ sudo mv libgmodule* disabled-libraries/
+$ cd /opt/resolve/bin
+$ ./resolve
+# se der erro a respeito da libcrypt:
+$ sudo dnf install -y libxcrypt-compat
 
 ######################################
 # Apps Loja Flathub
