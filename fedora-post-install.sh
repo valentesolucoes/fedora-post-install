@@ -163,6 +163,10 @@ dnf install -y onedriver
 echo Instalando Nextcloud
 dnf install -y nextcloud-client
 
+echo Instalando Postman
+dnf copr enable -y coder966/postman
+dnf install -y postman
+
 echo Instalando Etcher
 wget https://github.com/balena-io/etcher/releases/download/v2.1.0/balena-etcher-2.1.0-1.x86_64.rpm
 dnf install -y balena-etcher-*
