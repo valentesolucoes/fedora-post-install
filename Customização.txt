@@ -1,3 +1,14 @@
+Install Essential Applications
+
+Install GNOME Tweaks
+	sudo apt install gnome-tweaks
+Install Multimedia Codecs
+	sudo apt install ubuntu-restricted-extras
+Set Up Flatpak & Flathub
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+Install GNOME Extensions Support
+	sudo apt install chrome-gnome-shell gnome-shell-extension-manager
+
 - Pastas de customização
    ~/.icons (criar)
       WhiteSur WhiteSur-cursors WhiteSur-dark WhiteSur-light WhiteSur-orange
