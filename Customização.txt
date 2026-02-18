@@ -1,6 +1,31 @@
 - Pastas de customização
-~/.icons (criar)
-	WhiteSur WhiteSur-cursors WhiteSur-dark WhiteSur-light WhiteSur-orange
+   ~/.icons (criar)
+      WhiteSur WhiteSur-cursors WhiteSur-dark WhiteSur-light WhiteSur-orange
 	
-~/.local/share/themes (criar)
-	WhiteSur-Light
+   ~/.local/share/themes (criar)
+      WhiteSur-Light
+	
+Extensões
+
+Do usuário
+   ArcMenu
+   Blur my Shell
+   Burn my Windows
+   Dash2Dock Animated
+   No overlay at start-up
+   Quick Settings Tweask
+   Search Light
+   Vitals
+
+Do Sistema
+   Add to Desktop
+   Removable Drive Menu
+   User Thems
+   X11 Gestures
+   Zorin Appindicators
+   Zorin Connect
+   Zorin Magic Lamp Effect
+   Zorin Printers
+   Zorin Spatial Window Switcher
+   Zorin Tiling Shell
+   Zorin Window Move Effect
