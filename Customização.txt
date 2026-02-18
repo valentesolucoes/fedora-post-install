@@ -1,0 +1,6 @@
+- Pastas de customização
+~/.icons (criar)
+	WhiteSur WhiteSur-cursors WhiteSur-dark WhiteSur-light WhiteSur-orange
+	
+~/.local/share/themes (criar)
+	WhiteSur-Light
